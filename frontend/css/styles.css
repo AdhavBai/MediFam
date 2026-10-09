@@ -1,0 +1,133 @@
+/* MediFamily OS - Custom Styles & Healthcare Theme */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --emerald: #10b981;
+    --emergency-red: #ef4444;
+    --warning-amber: #f59e0b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(51, 65, 85, 0.8);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 1);
+}
+
+/* Glassmorphism */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Emergency Break-Glass Pulsating Siren */
+@keyframes emergency-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7), inset 0 0 15px rgba(239, 68, 68, 0.3);
+        border-color: rgba(239, 68, 68, 0.9);
+    }
+    50% {
+        box-shadow: 0 0 35px 10px rgba(239, 68, 68, 0.4), inset 0 0 30px rgba(239, 68, 68, 0.6);
+        border-color: rgba(248, 113, 113, 1);
+    }
+}
+
+.emergency-glow {
+    animation: emergency-pulse 1.8s infinite ease-in-out;
+}
+
+/* Digital Health ID Card Holographic Sheen */
+.health-id-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.3);
+}
+
+.health-id-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.06) 45%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.06) 55%,
+        transparent 60%
+    );
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+/* Notification Toast Slide In */
+@keyframes toast-slide {
+    from {
+        transform: translateY(-20px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.toast-animate {
+    animation: toast-slide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modal Backdrop Blur */
+.modal-backdrop {
+    background: rgba(10, 15, 29, 0.82);
+    backdrop-filter: blur(8px);
+}
+
+/* Priority Badges */
+.badge-high {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.badge-medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-low {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
